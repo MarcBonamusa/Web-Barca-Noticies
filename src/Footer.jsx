@@ -3,7 +3,6 @@ import React from "react";
 class Footer extends React.Component {
   render() {
     return (
-      // CLASES MODIFICADAS: Se añadieron 'border-t-4' y 'border-red-600'
       <footer className="bg-white-800 py-6 px-4 shadow-inner border-t-4 border-red-600">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-white">
 
