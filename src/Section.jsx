@@ -35,7 +35,8 @@ class Section extends React.Component {
     const NewsCard = ({ title }) => {
         return (
             <div className="flex-1 min-w-0 bg-white p-6 md:p-12 border-4 border-red-600 rounded-lg shadow-md text-center flex flex-col items-center justify-center space-y-8">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-blue-800 tracking-wider">
+                {/* Título más pequeño: de text-4xl/md:text-5xl a text-2xl/md:text-3xl */}
+                <h2 className="text-2xl md:text-3xl font-extrabold text-blue-800 tracking-wider">
                     {title}
                 </h2>
                 <button className="flex items-center space-x-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-colors duration-200 shadow-lg uppercase text-sm">
@@ -54,6 +55,7 @@ class Section extends React.Component {
             
             <div className="flex">
                 
+                {/* Aunque el carrusel no esté en foco, mantengo la lógica de imagen */}
                 <div key={currentIndex} className="w-full h-52 md:h-80 relative"> 
                     <div 
                         className="w-full h-full flex items-center justify-center relative transition-opacity duration-700 opacity-100"
@@ -89,9 +91,9 @@ class Section extends React.Component {
             
             <div className="flex flex-col md:flex-row gap-6">
             
-            <NewsCard title="NOTÍCIA 1" />
+            <NewsCard title="Sessió prèvia al Olympiakos"/>
             
-            <NewsCard title="NOTÍCIA 2" />
+            <NewsCard title="Flick: Aquest club m'ha canviat per complet"/>
             
             </div>
         </div>
