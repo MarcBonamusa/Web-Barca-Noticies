@@ -48,6 +48,14 @@ class Header extends React.Component {
                     HISTÒRIA
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-red-600 hover:border-b-2 border-red-600 font-semibold text-base pb-1 transition-colors duration-300"
+                  >
+                    CONTACTE
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>

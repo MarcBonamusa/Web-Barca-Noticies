@@ -7,7 +7,7 @@ class Footer extends React.Component {
       <footer className="bg-white-950 py-10 px-6 border-t-4 border-red-600">
         <div className="max-w-7xl mx-auto">
 
-          <div className="flex flex-col md:flex-row items-center justify-between pb-8 border-b border-gray-800 space-y-6 md:space-y-0">
+          <div className="flex flex-col md:flex-row items-center justify-between pb-8 border-b border-blue-800 space-y-6 md:space-y-0">
             
             <div className="flex items-center">
               <span className="text-3xl font-extrabold tracking-wider uppercase">
@@ -32,7 +32,7 @@ class Footer extends React.Component {
             <FooterLinks title="Contacto" links={['Trabaja con nosotros', 'Soporte', 'Prensa']} />
           </div>
 
-          <div className="pt-6 text-center text-gray-400 text-xs border-t border-gray-800">
+          <div className="pt-6 text-center text-gray-400 text-xs border-t border-blue-800">
             &copy; {new Date().getFullYear()} Barça Digital Notícies. Todos los derechos reservados.
           </div>
         </div>
