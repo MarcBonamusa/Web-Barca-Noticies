@@ -74,7 +74,7 @@ class Section extends React.Component {
     };
     
     return (
-      <div className="py-12 bg-gradient-to-b from-blue-900 via-blue-700 to-blue-900 font-sans w-full min-h-screen"> 
+      <div className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen"> 
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           
           <div className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl group">
