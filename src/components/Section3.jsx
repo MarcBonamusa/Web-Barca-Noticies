@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Los datos se mantienen igual, pero la imagen del hito destacado ahora se ignora en el bloque superior
 const historyData = [
   { 
     title: "Fundació del Club", 
@@ -50,6 +51,8 @@ const HitoCard = ({ title, year, description, image }) => (
 function SectionHistoria() {
 
   const featuredHito = historyData[3];
+  
+  const featuredVideoEmbedUrl = "https://www.youtube.com/embed/LdmVkqxqvrk";
 
   return (
     <section className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen">
@@ -58,32 +61,19 @@ function SectionHistoria() {
         
         <div className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl">
             <div className="relative h-64 md:h-96">
-              <div 
-                className="w-full h-full"
-                style={{ 
-                  backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${featuredHito.image})`,
-                  backgroundSize: 'cover', 
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'center center', 
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-transparent to-transparent opacity-60"></div>
                 
-                <div className="absolute top-6 left-6 bg-red-600 text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
-                  FITA DESTACADA
-                </div>
+                <iframe 
+                    className="w-full h-full object-cover"
+                    src={featuredVideoEmbedUrl}
+                    title="Fita Destacada - El Sextet de Guardiola"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
                 
-                <div className="absolute bottom-6 left-6 text-white font-bold text-lg md:text-3xl shadow-lg">
-                  {featuredHito.title} ({featuredHito.year})
-                </div>
+                <div className="absolute inset-0 bg-blue-900 opacity-20"></div>
                 
-                <div className="absolute bottom-6 right-6 text-white text-base md:text-xl text-right max-w-sm">
-                   {featuredHito.description}
-                </div>
-              </div>
             </div>
-            
-            
         </div>
         
         <div className="mb-8 text-center">
