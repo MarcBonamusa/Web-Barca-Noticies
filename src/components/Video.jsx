@@ -10,7 +10,7 @@ function VideoPlayer({ mp4Src, webmSrc, title }) {
       loading="lazy"
     >
       {webmSrc && <source src={webmSrc} type="video/webm" />}
-      {mp4Src && <source src={mp4Src} type="video/mp4" />}
+      {mp4Src && <source src={mp4Src} type="video/video.mp4" />}
       El teu navegador no suporta la reproducció de vídeo.
     </video>
   );
