@@ -18,9 +18,9 @@ class Footer extends React.Component {
             
             <div className="flex items-center">
               <span className="text-3xl font-extrabold tracking-wider uppercase">
-                <span className="text-blue-900">BARÇA</span>{" "}
+                <span className="text-blue-600">BARÇA</span>{" "}
                 <span className="text-red-600">DIGITAL</span>{" "}
-                <span className="text-blue-900">NOTÍCIES</span>
+                <span className="text-blue-600">NOTÍCIES</span>
               </span>
             </div>
 
