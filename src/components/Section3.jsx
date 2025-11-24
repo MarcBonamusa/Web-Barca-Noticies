@@ -1,6 +1,6 @@
 import React from 'react';
+import VideoPlayer from './Video';
 
-// Los datos se mantienen igual
 const historyData = [
   { 
     title: "Fundació del Club", 
@@ -29,62 +29,46 @@ const historyData = [
 ];
 
 const HitoCard = ({ title, year, description, image }) => (
-  <div className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-6 md:p-8 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-start space-y-4 transform hover:-translate-y-1 transition-all duration-300 h-full">
+  <article className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-6 md:p-8 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-start space-y-4 transform hover:-translate-y-1 transition-all duration-300 h-full">
     <div className="w-24 h-24 rounded-full overflow-hidden mb-2 shadow-lg border-2 border-blue-900">
       <img src={image} alt={title} className="w-full h-full object-cover" />
     </div>
-    <h2 className="text-xl md:text-2xl font-bold text-blue-900 tracking-tight leading-tight">
-      {title}
-    </h2>
-    <p className="text-lg md:text-xl font-bold text-red-600">
-      Any: {year}
-    </p>
-    <p className="text-sm md:text-base text-gray-700 font-semibold flex-grow">
-      {description}
-    </p>
+    <h2 className="text-xl md:text-2xl font-bold text-blue-900 tracking-tight leading-tight">{title}</h2>
+    <p className="text-lg md:text-xl font-bold text-red-600">Any: {year}</p>
+    <p className="text-sm md:text-base text-gray-700 font-semibold flex-grow">{description}</p>
     <button className="flex items-center space-x-2 px-6 py-2 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md uppercase text-xs">
       Més detalls
     </button>
-  </div>
+  </article>
 );
 
 function SectionHistoria() {
-
   const featuredHito = historyData[3];
-  
-  // URL CORREGIDA: Usando el formato de incrustación de YouTube (/embed/)
-  const featuredVideoEmbedUrl = "https://www.youtube.com/embed/LdmVkqxqvrk"; 
+  const mp4Video = "/videos/el-sextet.mp4";
+  const webmVideo = "/videos/el-sextet.webm";
 
   return (
     <section className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen">
-      
-      <div className="max-w-7xl mx-auto px-4 md:px-8"> 
-        
-        <div className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl">
-            <div className="relative h-64 md:h-96">
-                
-                {/* INCRUSTACIÓN DEL VIDEO */}
-                <iframe 
-                    className="w-full h-full object-cover"
-                    src={featuredVideoEmbedUrl}
-                    title="Fita Destacada - El Sextet de Guardiola"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
-                
-                
-            </div>
-        </div>
-        
-        <div className="mb-8 text-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+
+        <section className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl">
+          <div className="relative h-64 md:h-96">
+            <VideoPlayer
+              mp4Src={mp4Video}
+              webmSrc={webmVideo}
+              title={`Fita Destacada - ${featuredHito.title}`}
+            />
+          </div>
+        </section>
+
+        <section className="mb-8 text-center">
           <h1 className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">
             Grans Moments del Barça
           </h1>
           <div className="w-24 h-1 bg-red-600 mx-auto rounded-full"></div>
-        </div>
+        </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10">
           {historyData.map((hito, idx) => (
             <HitoCard
               key={idx}
@@ -94,7 +78,7 @@ function SectionHistoria() {
               image={hito.image}
             />
           ))}
-        </div>
+        </section>
 
       </div>
     </section>

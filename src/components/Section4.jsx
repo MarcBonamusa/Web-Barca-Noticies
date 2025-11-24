@@ -14,25 +14,23 @@ const playersData = [
 ];
 
 const PlayerCard = ({ name, number, position, image }) => (
-  <div className="group bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl border-2 border-blue-900 transition-all duration-300 transform hover:scale-[1.02] flex flex-col items-center text-center">
+  <article className="group bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl border-2 border-blue-900 transition-all duration-300 transform hover:scale-[1.02] flex flex-col items-center text-center">
     <div className="w-36 h-36 rounded-full overflow-hidden mb-4 border-4 border-red-600 shadow-lg">
       <img src={image} alt={name} className="w-full h-full object-cover" />
     </div>
-    <div className="text-4xl font-black text-red-600 mb-2">{number}</div>
-    <h2 className="text-xl font-bold text-blue-900 tracking-tight leading-tight mb-1">
-      {name}
-    </h2>
-    <p className="text-sm font-semibold text-gray-600 mb-3">
-      {position}
-    </p>
+    <hgroup>
+      <h2 className="text-4xl font-black text-red-600 mb-2">{number}</h2>
+      <h3 className="text-xl font-bold text-blue-900 tracking-tight leading-tight mb-1">{name}</h3>
+      <p className="text-sm font-semibold text-gray-600 mb-3">{position}</p>
+    </hgroup>
     <button className="flex items-center space-x-2 px-6 py-2 bg-blue-900 text-white font-bold rounded-full hover:bg-blue-700 active:scale-95 transition-all duration-200 shadow-md uppercase text-xs">
       Veure Perfil
     </button>
-  </div>
+  </article>
 );
 
 const FeaturedPlayer = ({ player }) => (
-  <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl mb-12 border-4 border-red-600">
+  <section className="relative bg-white rounded-3xl overflow-hidden shadow-2xl mb-12 border-4 border-red-600" aria-label="Jugador Destacat">
     <div className="flex flex-col md:flex-row h-full">
       
       <div className="md:w-1/3 bg-blue-900 flex items-end justify-center overflow-hidden h-64 md:h-auto">
@@ -47,16 +45,12 @@ const FeaturedPlayer = ({ player }) => (
         <span className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-2">
           Jugador Destacat
         </span>
-        <h2 className="text-5xl md:text-7xl font-black text-blue-900 leading-none">
-          {player.name}
-        </h2>
+        <hgroup>
+          <h2 className="text-5xl md:text-7xl font-black text-blue-900 leading-none">{player.name}</h2>
+          <p className="text-2xl font-bold text-gray-700 uppercase mt-2">{player.position}</p>
+        </hgroup>
         <div className="flex items-center space-x-4 mt-4 mb-6">
-          <span className="text-6xl font-extrabold text-red-600 border-r-4 border-gray-300 pr-4">
-            {player.number}
-          </span>
-          <span className="text-2xl font-bold text-gray-700 uppercase">
-            {player.position}
-          </span>
+          <span className="text-6xl font-extrabold text-red-600 border-r-4 border-gray-300 pr-4">{player.number}</span>
         </div>
         <p className="text-gray-600 text-lg max-w-lg mb-6">
           Líder a la defensa i capità. Ronald Araújo representa la força, el compromís i el futur del FC Barcelona. La seva presència al camp és sinònim de seguretat.
@@ -70,9 +64,8 @@ const FeaturedPlayer = ({ player }) => (
         <span className="text-[150px] font-black text-blue-900 leading-none">{player.number}</span>
       </div>
     </div>
-  </div>
+  </section>
 );
-
 
 function SectionJugadors() {
   const allPositions = ['Totes', ...new Set(playersData.map(p => p.position))];
@@ -85,20 +78,19 @@ function SectionJugadors() {
   const featuredPlayer = playersData.find(p => p.name === "Ronald Araújo") || playersData[0];
 
   return (
-    <div className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen">
-      
+    <section className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen" aria-label="Plantilla del FC Barcelona">
       <div className="max-w-7xl mx-auto px-4 md:px-8"> 
         
-        <div className="mb-12 text-center">
+        <section className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">
             Plantilla del FC Barcelona
           </h1>
           <div className="w-24 h-1 bg-red-600 mx-auto rounded-full"></div>
-        </div>
+        </section>
 
         <FeaturedPlayer player={featuredPlayer} />
 
-        <div className="mb-10 flex flex-wrap justify-center space-x-2 md:space-x-4">
+        <section className="mb-10 flex flex-wrap justify-center space-x-2 md:space-x-4" aria-label="Filtrat per posició">
           {allPositions.map(position => (
             <button
               key={position}
@@ -113,9 +105,9 @@ function SectionJugadors() {
               {position}
             </button>
           ))}
-        </div>
+        </section>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pb-10">
+        <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pb-10" aria-label="Llista de jugadors">
           {filteredPlayers.length > 0 ? (
             filteredPlayers.map((player, index) => (
               <PlayerCard
@@ -131,10 +123,10 @@ function SectionJugadors() {
               <p className="text-xl text-white font-semibold">No hi ha jugadors en aquesta posició.</p>
             </div>
           )}
-        </div>
+        </section>
 
       </div>
-    </div>
+    </section>
   );
 }
 
