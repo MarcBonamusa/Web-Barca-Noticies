@@ -44,8 +44,8 @@ const HitoCard = ({ title, year, description, image }) => (
 
 function SectionHistoria() {
   const featuredHito = historyData[3];
-  const mp4Video = "/videos/el-sextet.mp4";
-  const webmVideo = "/videos/el-sextet.webm";
+  const mp4Video = "/video/video.mp4";
+  const webmVideo = "/video/video.webm";
 
   return (
     <section className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen">
