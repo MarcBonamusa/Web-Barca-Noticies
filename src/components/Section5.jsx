@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
 function SectionContacte() {
   return (
     <main className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen flex justify-center items-start">
-
       <section className="max-w-xl w-full mx-auto px-4 md:px-8">
-
         <section className="mb-8 text-center mt-4">
           <h1 className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">
             Contacta amb Nosaltres
@@ -15,12 +13,16 @@ function SectionContacte() {
 
         <article className="bg-white p-8 md:p-10 rounded-xl shadow-2xl">
           <p className="text-lg text-gray-700 mb-6 text-center">
-            Envia'ns un missatge i ens posarem en contacte el més aviat possible.
+            Envia'ns un missatge i ens posarem en contacte el més aviat
+            possible.
           </p>
 
           <form className="space-y-6">
             <section>
-              <label htmlFor="nom" className="block text-sm font-semibold text-blue-900 mb-1">
+              <label
+                htmlFor="nom"
+                className="block text-sm font-semibold text-blue-900 mb-1"
+              >
                 Nom Complet
               </label>
               <input
@@ -33,7 +35,10 @@ function SectionContacte() {
             </section>
 
             <section>
-              <label htmlFor="email" className="block text-sm font-semibold text-blue-900 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold text-blue-900 mb-1"
+              >
                 Correu Electrònic
               </label>
               <input
@@ -46,7 +51,10 @@ function SectionContacte() {
             </section>
 
             <section>
-              <label htmlFor="missatge" className="block text-sm font-semibold text-blue-900 mb-1">
+              <label
+                htmlFor="missatge"
+                className="block text-sm font-semibold text-blue-900 mb-1"
+              >
                 Missatge
               </label>
               <textarea
@@ -64,15 +72,23 @@ function SectionContacte() {
                 className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-[0.98] transition-all duration-200 shadow-lg uppercase"
               >
                 <span>Enviar Missatge</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
                 </svg>
               </button>
             </section>
-
           </form>
         </article>
-
       </section>
     </main>
   );

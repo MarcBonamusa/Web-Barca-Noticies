@@ -1,15 +1,34 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 const matchesData = [
-  { rival: "Real Madrid", date: "20/11/2025", score: "2-1", image: "/partits/madrid.webp" },
-  { rival: "Sevilla FC", date: "27/11/2025", score: "3-0", image: "/partits/sevilla.webp" },
-  { rival: "Atlético de Madrid", date: "04/12/2025", score: "1-1", image: "/partits/atm.webp" },
-  { rival: "Valencia CF", date: "10/12/2025", score: "4-2", image: "/partits/valencia.webp" }
+  {
+    rival: "Real Madrid",
+    date: "20/11/2025",
+    score: "2-1",
+    image: "/partits/madrid.webp",
+  },
+  {
+    rival: "Sevilla FC",
+    date: "27/11/2025",
+    score: "3-0",
+    image: "/partits/sevilla.webp",
+  },
+  {
+    rival: "Atlético de Madrid",
+    date: "04/12/2025",
+    score: "1-1",
+    image: "/partits/atm.webp",
+  },
+  {
+    rival: "Valencia CF",
+    date: "10/12/2025",
+    score: "4-2",
+    image: "/partits/valencia.webp",
+  },
 ];
 
 const MatchCard = ({ rival, date, score, image }) => (
   <article className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-8 md:p-10 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-center space-y-6 transform hover:-translate-y-1 transition-all duration-300">
-    
     <div className="w-24 h-24 rounded-full overflow-hidden mb-4 shadow-lg">
       <img src={image} alt={rival} className="w-full h-full object-cover" />
     </div>
@@ -28,14 +47,22 @@ const MatchCard = ({ rival, date, score, image }) => (
 
     <button className="flex items-center space-x-2 px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md group-hover:shadow-xl uppercase text-sm">
       <span>Més informació</span>
-      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      <svg
+        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 5l7 7-7 7"
+        />
       </svg>
     </button>
-
   </article>
 );
-
 
 function SectionPartits() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,7 +72,7 @@ function SectionPartits() {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % matchesData.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % matchesData.length);
       setIsTransitioning(false);
     }, 300);
   }, [isTransitioning]);
@@ -54,7 +81,9 @@ function SectionPartits() {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentIndex(prevIndex => (prevIndex - 1 + matchesData.length) % matchesData.length);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + matchesData.length) % matchesData.length
+      );
       setIsTransitioning(false);
     }, 300);
   }, [isTransitioning]);
@@ -69,9 +98,7 @@ function SectionPartits() {
   return (
     <section className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-
         <section className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl group">
-          
           <div className="relative h-64 md:h-96">
             <div
               className={`w-full h-full transition-all duration-500 ${
@@ -98,8 +125,18 @@ function SectionPartits() {
             onClick={goToPrev}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={3}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
 
@@ -107,8 +144,18 @@ function SectionPartits() {
             onClick={goToNext}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={3}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
 
@@ -125,7 +172,6 @@ function SectionPartits() {
               />
             ))}
           </section>
-
         </section>
 
         <section className="mb-8 text-center">
@@ -146,7 +192,6 @@ function SectionPartits() {
             />
           ))}
         </section>
-
       </div>
     </section>
   );

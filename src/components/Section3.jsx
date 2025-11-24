@@ -1,30 +1,35 @@
-import React from 'react';
-import VideoPlayer from './Video';
+import React from "react";
+import VideoPlayer from "./Video";
 
 const historyData = [
-  { 
-    title: "Fundació del Club", 
-    year: "1899", 
-    description: "Joan Gamper funda el club amb els colors blaugrana.", 
-    image: "https://www.fcbarcelona.com/fcbarcelona/photo/2018/03/13/25545ed2-dcb7-47be-96b1-71585ba820b2/16070442.jpg"
+  {
+    title: "Fundació del Club",
+    year: "1899",
+    description: "Joan Gamper funda el club amb els colors blaugrana.",
+    image:
+      "https://www.fcbarcelona.com/fcbarcelona/photo/2018/03/13/25545ed2-dcb7-47be-96b1-71585ba820b2/16070442.jpg",
   },
-  { 
-    title: "Inauguració del Camp Nou", 
-    year: "1957", 
-    description: "El club es trasllada al nou i icònic estadi.", 
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKFhnnnYZDNTevWVDq52VPDZLIg-0U440vmg&s" 
+  {
+    title: "Inauguració del Camp Nou",
+    year: "1957",
+    description: "El club es trasllada al nou i icònic estadi.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKFhnnnYZDNTevWVDq52VPDZLIg-0U440vmg&s",
   },
-  { 
-    title: "La Copa d'Europa (Cruyff)", 
-    year: "1992", 
-    description: "El Dream Team guanya la primera Copa d'Europa a Wembley.", 
-    image: "https://www.fcbarcelona.com/photo-resources/2020/04/25/44b8c5ae-2cd0-4d06-91c5-dd485726c5f7/15-Final-Champions-1992-min.jpg?width=469&height=750" 
+  {
+    title: "La Copa d'Europa (Cruyff)",
+    year: "1992",
+    description: "El Dream Team guanya la primera Copa d'Europa a Wembley.",
+    image:
+      "https://www.fcbarcelona.com/photo-resources/2020/04/25/44b8c5ae-2cd0-4d06-91c5-dd485726c5f7/15-Final-Champions-1992-min.jpg?width=469&height=750",
   },
-  { 
-    title: "El Sextet (Guardiola)", 
-    year: "2009", 
-    description: "L'equip aconsegueix guanyar sis títols en un mateix any natural.", 
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFcot8fo5PnCt1CHOXwwTnUo1JDzB3DRMqg&s" 
+  {
+    title: "El Sextet (Guardiola)",
+    year: "2009",
+    description:
+      "L'equip aconsegueix guanyar sis títols en un mateix any natural.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFcot8fo5PnCt1CHOXwwTnUo1JDzB3DRMqg&s",
   },
 ];
 
@@ -33,9 +38,13 @@ const HitoCard = ({ title, year, description, image }) => (
     <div className="w-24 h-24 rounded-full overflow-hidden mb-2 shadow-lg border-2 border-blue-900">
       <img src={image} alt={title} className="w-full h-full object-cover" />
     </div>
-    <h2 className="text-xl md:text-2xl font-bold text-blue-900 tracking-tight leading-tight">{title}</h2>
+    <h2 className="text-xl md:text-2xl font-bold text-blue-900 tracking-tight leading-tight">
+      {title}
+    </h2>
     <p className="text-lg md:text-xl font-bold text-red-600">Any: {year}</p>
-    <p className="text-sm md:text-base text-gray-700 font-semibold flex-grow">{description}</p>
+    <p className="text-sm md:text-base text-gray-700 font-semibold flex-grow">
+      {description}
+    </p>
     <button className="flex items-center space-x-2 px-6 py-2 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md uppercase text-xs">
       Més detalls
     </button>
@@ -50,7 +59,6 @@ function SectionHistoria() {
   return (
     <section className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-
         <section className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl">
           <div className="relative h-64 md:h-96">
             <VideoPlayer
@@ -79,7 +87,6 @@ function SectionHistoria() {
             />
           ))}
         </section>
-
       </div>
     </section>
   );
