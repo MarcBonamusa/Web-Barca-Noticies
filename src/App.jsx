@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
-// Asegúrate de que los nombres y rutas de tus archivos coincidan con estas importaciones
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SectionInici from './components/Section.jsx'

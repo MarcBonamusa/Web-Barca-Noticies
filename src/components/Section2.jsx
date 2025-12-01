@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-// 1. Dades en català
 const dadesPartits = [
   {
     rival: "Real Madrid",
@@ -28,7 +27,6 @@ const dadesPartits = [
   },
 ];
 
-// 2. Component fill amb nom en català
 const TargetaPartit = ({ rival, data, resultat, img }) => (
   <article className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-8 md:p-10 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-center space-y-6 transform hover:-translate-y-1 transition-all duration-300">
     <div className="w-24 h-24 rounded-full overflow-hidden mb-4 shadow-lg">
@@ -67,7 +65,6 @@ const TargetaPartit = ({ rival, data, resultat, img }) => (
 );
 
 function SectionPartits() {
-  // 3. Estats i funcions traduïdes
   const [indexActual, setIndexActual] = useState(0);
   const [fentTransicio, setFentTransicio] = useState(false);
 
