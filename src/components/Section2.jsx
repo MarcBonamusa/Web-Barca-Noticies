@@ -3,34 +3,34 @@ import React, { useState, useEffect, useCallback } from "react";
 const matchesData = [
   {
     rival: "Real Madrid",
-    date: "20/11/2025",
-    score: "2-1",
-    image: "/partits/madrid.webp",
+    data: "20/11/2025",
+    resultat: "2-1",
+    img: "/partits/madrid.webp",
   },
   {
     rival: "Sevilla FC",
-    date: "27/11/2025",
-    score: "3-0",
-    image: "/partits/sevilla.webp",
+    data: "27/11/2025",
+    resultat: "3-0",
+    img: "/partits/sevilla.webp",
   },
   {
     rival: "Atlético de Madrid",
-    date: "04/12/2025",
-    score: "1-1",
-    image: "/partits/atm.webp",
+    data: "04/12/2025",
+    resultat: "1-1",
+    img: "/partits/atm.webp",
   },
   {
     rival: "Valencia CF",
-    date: "10/12/2025",
-    score: "4-2",
-    image: "/partits/valencia.webp",
+    data: "10/12/2025",
+    resultat: "4-2",
+    img: "/partits/valencia.webp",
   },
 ];
 
-const MatchCard = ({ rival, date, score, image }) => (
+const MatchCard = ({ rival, data, resultat, img }) => (
   <article className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-8 md:p-10 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-center space-y-6 transform hover:-translate-y-1 transition-all duration-300">
     <div className="w-24 h-24 rounded-full overflow-hidden mb-4 shadow-lg">
-      <img src={image} alt={rival} className="w-full h-full object-cover" />
+      <img src={img} alt={rival} className="w-full h-full object-cover" />
     </div>
 
     <h2 className="text-xl md:text-2xl font-bold text-blue-900 tracking-tight leading-tight">
@@ -38,11 +38,11 @@ const MatchCard = ({ rival, date, score, image }) => (
     </h2>
 
     <p className="text-sm md:text-base text-gray-700 font-semibold">
-      Data: {date}
+      Data: {data}
     </p>
 
     <p className="text-lg md:text-xl font-bold text-red-600">
-      Resultat: {score}
+      Resultat: {resultat}
     </p>
 
     <button className="flex items-center space-x-2 px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md group-hover:shadow-xl uppercase text-sm">
@@ -105,7 +105,7 @@ function SectionPartits() {
                 isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
               }`}
               style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${currentMatch.image})`,
+                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${currentMatch.img})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center center",
@@ -116,7 +116,7 @@ function SectionPartits() {
                 PARTIT DESTACAT
               </div>
               <div className="absolute bottom-6 left-6 text-white font-bold text-lg md:text-2xl shadow-lg">
-                {currentMatch.rival} - {currentMatch.score}
+                {currentMatch.rival} - {currentMatch.resultat}
               </div>
             </div>
           </div>
@@ -186,9 +186,9 @@ function SectionPartits() {
             <MatchCard
               key={idx}
               rival={match.rival}
-              date={match.date}
-              score={match.score}
-              image={match.image}
+              data={match.data}
+              resultat={match.resultat}
+              img={match.img}
             />
           ))}
         </section>

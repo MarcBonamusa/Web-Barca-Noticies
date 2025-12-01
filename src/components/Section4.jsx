@@ -2,88 +2,78 @@ import React, { useState } from "react";
 
 const playersData = [
   {
-    name: "Marc-André ter Stegen",
-    number: 1,
-    position: "Porter",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgrErHwU0jT1wlGpDy_pHaOfp1ZsXxIQEDGQ&s",
+    nom: "Marc-André ter Stegen",
+    numero: 1,
+    posicio: "Porter",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgrErHwU0jT1wlGpDy_pHaOfp1ZsXxIQEDGQ&s",
   },
   {
-    name: "Iñaki Peña",
-    number: 13,
-    position: "Porter",
-    image:
-      "https://fcb-abj-pre.s3.amazonaws.com/img/jugadors/I%C3%91AKI%20PE%C3%91A-min.jpg",
+    nom: "Iñaki Peña",
+    numero: 13,
+    posicio: "Porter",
+    img: "https://fcb-abj-pre.s3.amazonaws.com/img/jugadors/I%C3%91AKI%20PE%C3%91A-min.jpg",
   },
   {
-    name: "Ronald Araújo",
-    number: 4,
-    position: "Defensa",
-    image:
-      "https://www.fcbarcelona.com/photo-resources/2025/09/09/072afc10-1ec9-483e-a4a5-8775cb6cea23/04-Araujo.png?width=670&height=790",
+    nom: "Ronald Araújo",
+    numero: 4,
+    posicio: "Defensa",
+    img: "https://www.fcbarcelona.com/photo-resources/2025/09/09/072afc10-1ec9-483e-a4a5-8775cb6cea23/04-Araujo.png?width=670&height=790",
   },
   {
-    name: "Jules Koundé",
-    number: 23,
-    position: "Defensa",
-    image:
-      "https://www.fcbarcelona.com/photo-resources/2025/09/09/089a6980-e8be-46fe-900c-4202293ef729/23-Kounde.png?width=670&height=790",
+    nom: "Jules Koundé",
+    numero: 23,
+    posicio: "Defensa",
+    img: "https://www.fcbarcelona.com/photo-resources/2025/09/09/089a6980-e8be-46fe-900c-4202293ef729/23-Kounde.png?width=670&height=790",
   },
   {
-    name: "Alejandro Balde",
-    number: 3,
-    position: "Defensa",
-    image:
-      "https://www.fcbarcelona.com/photo-resources/2025/09/09/0d332686-2eee-4297-a099-bab75c7c35bb/03-Balde.png?width=670&height=790",
+    nom: "Alejandro Balde",
+    numero: 3,
+    posicio: "Defensa",
+    img: "https://www.fcbarcelona.com/photo-resources/2025/09/09/0d332686-2eee-4297-a099-bab75c7c35bb/03-Balde.png?width=670&height=790",
   },
   {
-    name: "Gavi",
-    number: 6,
-    position: "Migcampista",
-    image:
-      "https://assets.laliga.com/squad/2025/t178/p500046/2048x2225/p500046_t178_2025_0_001_000.png",
+    nom: "Gavi",
+    numero: 6,
+    posicio: "Migcampista",
+    img: "https://assets.laliga.com/squad/2025/t178/p500046/2048x2225/p500046_t178_2025_0_001_000.png",
   },
   {
-    name: "Frenkie de Jong",
-    number: 21,
-    position: "Migcampista",
-    image:
-      "https://www.fcbarcelona.com/photo-resources/2025/09/09/b62d13a8-5712-4823-b627-18dcce921378/21-De_Jong.png?width=670&height=790",
+    nom: "Frenkie de Jong",
+    numero: 21,
+    posicio: "Migcampista",
+    img: "https://www.fcbarcelona.com/photo-resources/2025/09/09/b62d13a8-5712-4823-b627-18dcce921378/21-De_Jong.png?width=670&height=790",
   },
   {
-    name: "Pedri",
-    number: 8,
-    position: "Migcampista",
-    image:
-      "https://www.fcbarcelona.com/photo-resources/2025/09/09/3dd2346c-01bb-4ad9-9b62-ed5cbf8d8b06/08-Pedri.png?width=670&height=790",
+    nom: "Pedri",
+    numero: 8,
+    posicio: "Migcampista",
+    img: "https://www.fcbarcelona.com/photo-resources/2025/09/09/3dd2346c-01bb-4ad9-9b62-ed5cbf8d8b06/08-Pedri.png?width=670&height=790",
   },
   {
-    name: "Robert Lewandowski",
-    number: 9,
-    position: "Davanter",
-    image:
-      "https://assets.laliga.com/squad/2025/t178/p56764/2048x2048/p56764_t178_2025_1_003_000.png",
+    nom: "Robert Lewandowski",
+    numero: 9,
+    posicio: "Davanter",
+    img: "https://assets.laliga.com/squad/2025/t178/p56764/2048x2048/p56764_t178_2025_1_003_000.png",
   },
   {
-    name: "Lamine Yamal",
-    number: 27,
-    position: "Davanter",
-    image:
-      "https://assets.laliga.com/squad/2025/t178/p593109/2048x2225/p593109_t178_2025_1_001_000.png",
+    nom: "Lamine Yamal",
+    numero: 27,
+    posicio: "Davanter",
+    img: "https://assets.laliga.com/squad/2025/t178/p593109/2048x2225/p593109_t178_2025_1_001_000.png",
   },
 ];
 
-const PlayerCard = ({ name, number, position, image }) => (
+const PlayerCard = ({ nom, numero, posicio, img }) => (
   <article className="group bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl border-2 border-blue-900 transition-all duration-300 transform hover:scale-[1.02] flex flex-col items-center text-center">
     <div className="w-36 h-36 rounded-full overflow-hidden mb-4 border-4 border-red-600 shadow-lg">
-      <img src={image} alt={name} className="w-full h-full object-cover" />
+      <img src={img} alt={nom} className="w-full h-full object-cover" />
     </div>
     <hgroup>
-      <h2 className="text-4xl font-black text-red-600 mb-2">{number}</h2>
+      <h2 className="text-4xl font-black text-red-600 mb-2">{numero}</h2>
       <h3 className="text-xl font-bold text-blue-900 tracking-tight leading-tight mb-1">
-        {name}
+        {nom}
       </h3>
-      <p className="text-sm font-semibold text-gray-600 mb-3">{position}</p>
+      <p className="text-sm font-semibold text-gray-600 mb-3">{posicio}</p>
     </hgroup>
     <button className="flex items-center space-x-2 px-6 py-2 bg-blue-900 text-white font-bold rounded-full hover:bg-blue-700 active:scale-95 transition-all duration-200 shadow-md uppercase text-xs">
       Veure Perfil
@@ -99,8 +89,8 @@ const FeaturedPlayer = ({ player }) => (
     <div className="flex flex-col md:flex-row h-full">
       <div className="md:w-1/3 bg-blue-900 flex items-end justify-center overflow-hidden h-64 md:h-auto">
         <img
-          src={player.image}
-          alt={player.name}
+          src={player.img}
+          alt={player.nom}
           className="w-full h-full object-cover object-top transform scale-110 md:scale-100 opacity-80 md:opacity-100"
         />
       </div>
@@ -111,15 +101,15 @@ const FeaturedPlayer = ({ player }) => (
         </span>
         <hgroup>
           <h2 className="text-5xl md:text-7xl font-black text-blue-900 leading-none">
-            {player.name}
+            {player.nom}
           </h2>
           <p className="text-2xl font-bold text-gray-700 uppercase mt-2">
-            {player.position}
+            {player.posicio}
           </p>
         </hgroup>
         <div className="flex items-center space-x-4 mt-4 mb-6">
           <span className="text-6xl font-extrabold text-red-600 border-r-4 border-gray-300 pr-4">
-            {player.number}
+            {player.numero}
           </span>
         </div>
         <p className="text-gray-600 text-lg max-w-lg mb-6">
@@ -134,7 +124,7 @@ const FeaturedPlayer = ({ player }) => (
 
       <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
         <span className="text-[150px] font-black text-blue-900 leading-none">
-          {player.number}
+          {player.numero}
         </span>
       </div>
     </div>
@@ -144,17 +134,17 @@ const FeaturedPlayer = ({ player }) => (
 function SectionJugadors() {
   const allPositions = [
     "Totes",
-    ...new Set(playersData.map((p) => p.position)),
+    ...new Set(playersData.map((p) => p.posicio)),
   ];
   const [selectedPosition, setSelectedPosition] = useState("Totes");
 
   const filteredPlayers = playersData.filter(
     (player) =>
-      selectedPosition === "Totes" || player.position === selectedPosition
+      selectedPosition === "Totes" || player.posicio === selectedPosition
   );
 
   const featuredPlayer =
-    playersData.find((p) => p.name === "Ronald Araújo") || playersData[0];
+    playersData.find((p) => p.nom === "Ronald Araújo") || playersData[0];
 
   return (
     <section
@@ -196,13 +186,13 @@ function SectionJugadors() {
           aria-label="Llista de jugadors"
         >
           {filteredPlayers.length > 0 ? (
-            filteredPlayers.map((player, index) => (
+            filteredPlayers.map((player) => (
               <PlayerCard
-                key={player.number}
-                name={player.name}
-                number={player.number}
-                position={player.position}
-                image={player.image}
+                key={player.numero}
+                nom={player.nom}
+                numero={player.numero}
+                posicio={player.posicio}
+                img={player.img}
               />
             ))
           ) : (
