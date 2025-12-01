@@ -1,8 +1,7 @@
-import React from "react";
 import VideoPlayer from "./Video";
 import Gallery from "./Gallery";
 
-const historyData = [
+const dadesHistoria = [
   {
     titol: "Fundació del Club",
     any: "1899",
@@ -33,7 +32,7 @@ const historyData = [
   },
 ];
 
-const HitoCard = ({ titol, any, desc, img, alt }) => (
+const TargetaFita = ({ titol, any, desc, img, alt }) => (
   <article className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-6 md:p-8 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-start space-y-4 transform hover:-translate-y-1 transition-all duration-300 h-full">
     <div className="w-24 h-24 rounded-full overflow-hidden mb-2 shadow-lg border-2 border-blue-900">
       <img
@@ -58,9 +57,9 @@ const HitoCard = ({ titol, any, desc, img, alt }) => (
 );
 
 function SectionHistoria() {
-  const featuredHito = historyData[3];
-  const mp4Video = "/video/video.mp4";
-  const webmVideo = "/video/video.webm";
+  const fitaDestacada = dadesHistoria[3];
+  const videoMp4 = "/video/video.mp4";
+  const videoWebm = "/video/video.webm";
 
   return (
     <section className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen">
@@ -68,9 +67,9 @@ function SectionHistoria() {
         <section className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl">
           <div className="relative h-64 md:h-96">
             <VideoPlayer
-              mp4Src={mp4Video}
-              webmSrc={webmVideo}
-              titol={`Fita Destacada - ${featuredHito.titol}`}
+              mp4Src={videoMp4}
+              webmSrc={videoWebm}
+              titol={`Fita Destacada - ${fitaDestacada.titol}`}
             />
           </div>
         </section>
@@ -83,8 +82,8 @@ function SectionHistoria() {
         </section>
 
         <Gallery>
-          {historyData.map((historia, index) => (
-            <HitoCard
+          {dadesHistoria.map((historia, index) => (
+            <TargetaFita
               key={index}
               titol={historia.titol}
               any={historia.any}

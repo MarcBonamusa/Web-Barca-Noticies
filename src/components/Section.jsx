@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useCallback } from "react";
 import AudioPlayer from "./Audio";
 
-const imagesData = [
+const dadesImatges = [
   "index/alexia.webp",
   "index/lamine.webp",
   "index/ferran.webp",
   "index/lamine2.webp",
 ];
 
-const NewsCard = ({ title, icon }) => (
+const TargetaNoticia = ({ titol, icona }) => (
   <article className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-8 md:p-10 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-center space-y-6 transform hover:-translate-y-1 transition-all duration-300">
     <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-      <span className="text-3xl">{icon}</span>
+      <span className="text-3xl">{icona}</span>
     </div>
 
     <h2 className="text-xl md:text-2xl font-bold text-blue-900 tracking-tight leading-tight">
-      {title}
+      {titol}
     </h2>
 
     <button className="flex items-center space-x-2 px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md group-hover:shadow-xl uppercase text-sm">
@@ -38,37 +38,37 @@ const NewsCard = ({ title, icon }) => (
 );
 
 function SectionInici() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [indexActual, setIndexActual] = useState(0);
+  const [fentTransicio, setFentTransicio] = useState(false);
 
-  const goToNext = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
+  const anarSeguent = useCallback(() => {
+    if (fentTransicio) return;
+    setFentTransicio(true);
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % imagesData.length);
-      setIsTransitioning(false);
+      setIndexActual((prevIndex) => (prevIndex + 1) % dadesImatges.length);
+      setFentTransicio(false);
     }, 300);
-  }, [isTransitioning]);
+  }, [fentTransicio]);
 
-  const goToPrev = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
+  const anarAnterior = useCallback(() => {
+    if (fentTransicio) return;
+    setFentTransicio(true);
     setTimeout(() => {
-      setCurrentIndex(
-        (prevIndex) => (prevIndex - 1 + imagesData.length) % imagesData.length
+      setIndexActual(
+        (prevIndex) => (prevIndex - 1 + dadesImatges.length) % dadesImatges.length
       );
-      setIsTransitioning(false);
+      setFentTransicio(false);
     }, 300);
-  }, [isTransitioning]);
+  }, [fentTransicio]);
 
   useEffect(() => {
-    const autoPlayInterval = setInterval(goToNext, 5000);
-    return () => clearInterval(autoPlayInterval);
-  }, [goToNext]);
+    const intervalAuto = setInterval(anarSeguent, 5000);
+    return () => clearInterval(intervalAuto);
+  }, [anarSeguent]);
 
-  const currentImageUrl = imagesData[currentIndex];
+  const urlImatgeActual = dadesImatges[indexActual];
 
-  const audioFiles = [
+  const arxiusAudio = [
     { url: "/audio/himno.mp3", type: "audio/mpeg" },
     { url: "/audio/himno.ogg", type: "audio/ogg" },
   ];
@@ -82,10 +82,10 @@ function SectionInici() {
         >
           <div
             className={`relative h-64 md:h-96 w-full transition-all duration-500 ${
-              isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
+              fentTransicio ? "opacity-0 scale-95" : "opacity-100 scale-100"
             }`}
             style={{
-              backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${currentImageUrl})`,
+              backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${urlImatgeActual})`,
               backgroundSize: "cover",
               backgroundPosition: "center center",
             }}
@@ -96,9 +96,9 @@ function SectionInici() {
           </div>
 
           <button
-            onClick={goToPrev}
+            onClick={anarAnterior}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90"
-            aria-label="Noticia anterior"
+            aria-label="Notícia anterior"
           >
             <svg
               className="w-6 h-6"
@@ -116,9 +116,9 @@ function SectionInici() {
           </button>
 
           <button
-            onClick={goToNext}
+            onClick={anarSeguent}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90"
-            aria-label="Siguiente noticia"
+            aria-label="Següent notícia"
           >
             <svg
               className="w-6 h-6"
@@ -137,18 +137,18 @@ function SectionInici() {
 
           <div
             className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20"
-            aria-label="Selector de imágenes"
+            aria-label="Selector d'imatges"
           >
-            {imagesData.map((_, index) => (
+            {dadesImatges.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => setIndexActual(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
+                  index === indexActual
                     ? "bg-white w-8"
                     : "bg-white bg-opacity-50 hover:bg-opacity-75"
                 }`}
-                aria-label={`Ir a imagen ${index + 1}`}
+                aria-label={`Anar a imatge ${index + 1}`}
               />
             ))}
           </div>
@@ -162,14 +162,14 @@ function SectionInici() {
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <NewsCard title="Sessió prèvia al Olympiakos" icon="⚽" />
-          <NewsCard
-            title="Flick: Aquest club m'ha canviat per complet"
-            icon="🎙️"
+          <TargetaNoticia titol="Sessió prèvia al Olympiakos" icona="⚽" />
+          <TargetaNoticia
+            titol="Flick: Aquest club m'ha canviat per complet"
+            icona="🎙️"
           />
         </section>
 
-        <AudioPlayer sources={audioFiles} title="Escolta la nostra cançó" />
+        <AudioPlayer sources={arxiusAudio} title="Escolta la nostra cançó" />
       </div>
     </section>
   );

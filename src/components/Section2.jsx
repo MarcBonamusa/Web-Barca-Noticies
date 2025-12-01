@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-const matchesData = [
+// 1. Dades en català
+const dadesPartits = [
   {
     rival: "Real Madrid",
     data: "20/11/2025",
@@ -27,7 +28,8 @@ const matchesData = [
   },
 ];
 
-const MatchCard = ({ rival, data, resultat, img }) => (
+// 2. Component fill amb nom en català
+const TargetaPartit = ({ rival, data, resultat, img }) => (
   <article className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-8 md:p-10 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-center space-y-6 transform hover:-translate-y-1 transition-all duration-300">
     <div className="w-24 h-24 rounded-full overflow-hidden mb-4 shadow-lg">
       <img src={img} alt={rival} className="w-full h-full object-cover" />
@@ -65,35 +67,36 @@ const MatchCard = ({ rival, data, resultat, img }) => (
 );
 
 function SectionPartits() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  // 3. Estats i funcions traduïdes
+  const [indexActual, setIndexActual] = useState(0);
+  const [fentTransicio, setFentTransicio] = useState(false);
 
-  const goToNext = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
+  const anarSeguent = useCallback(() => {
+    if (fentTransicio) return;
+    setFentTransicio(true);
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % matchesData.length);
-      setIsTransitioning(false);
+      setIndexActual((prevIndex) => (prevIndex + 1) % dadesPartits.length);
+      setFentTransicio(false);
     }, 300);
-  }, [isTransitioning]);
+  }, [fentTransicio]);
 
-  const goToPrev = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
+  const anarAnterior = useCallback(() => {
+    if (fentTransicio) return;
+    setFentTransicio(true);
     setTimeout(() => {
-      setCurrentIndex(
-        (prevIndex) => (prevIndex - 1 + matchesData.length) % matchesData.length
+      setIndexActual(
+        (prevIndex) => (prevIndex - 1 + dadesPartits.length) % dadesPartits.length
       );
-      setIsTransitioning(false);
+      setFentTransicio(false);
     }, 300);
-  }, [isTransitioning]);
+  }, [fentTransicio]);
 
   useEffect(() => {
-    const autoPlayInterval = setInterval(goToNext, 5000);
-    return () => clearInterval(autoPlayInterval);
-  }, [goToNext]);
+    const intervalReproduccio = setInterval(anarSeguent, 5000);
+    return () => clearInterval(intervalReproduccio);
+  }, [anarSeguent]);
 
-  const currentMatch = matchesData[currentIndex];
+  const partitActual = dadesPartits[indexActual];
 
   return (
     <section className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen">
@@ -102,10 +105,10 @@ function SectionPartits() {
           <div className="relative h-64 md:h-96">
             <div
               className={`w-full h-full transition-all duration-500 ${
-                isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                fentTransicio ? "opacity-0 scale-95" : "opacity-100 scale-100"
               }`}
               style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${currentMatch.img})`,
+                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${partitActual.img})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center center",
@@ -116,13 +119,13 @@ function SectionPartits() {
                 PARTIT DESTACAT
               </div>
               <div className="absolute bottom-6 left-6 text-white font-bold text-lg md:text-2xl shadow-lg">
-                {currentMatch.rival} - {currentMatch.resultat}
+                {partitActual.rival} - {partitActual.resultat}
               </div>
             </div>
           </div>
 
           <button
-            onClick={goToPrev}
+            onClick={anarAnterior}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90"
           >
             <svg
@@ -141,7 +144,7 @@ function SectionPartits() {
           </button>
 
           <button
-            onClick={goToNext}
+            onClick={anarSeguent}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90"
           >
             <svg
@@ -160,12 +163,12 @@ function SectionPartits() {
           </button>
 
           <section className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-            {matchesData.map((_, index) => (
+            {dadesPartits.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => setIndexActual(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
+                  index === indexActual
                     ? "bg-white w-8"
                     : "bg-white bg-opacity-50 hover:bg-opacity-75"
                 }`}
@@ -182,13 +185,13 @@ function SectionPartits() {
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {matchesData.map((match, idx) => (
-            <MatchCard
+          {dadesPartits.map((partit, idx) => (
+            <TargetaPartit
               key={idx}
-              rival={match.rival}
-              data={match.data}
-              resultat={match.resultat}
-              img={match.img}
+              rival={partit.rival}
+              data={partit.data}
+              resultat={partit.resultat}
+              img={partit.img}
             />
           ))}
         </section>

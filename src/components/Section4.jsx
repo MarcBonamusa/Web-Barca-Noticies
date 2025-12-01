@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const playersData = [
+const dadesJugadors = [
   {
     nom: "Marc-André ter Stegen",
     numero: 1,
@@ -63,7 +63,7 @@ const playersData = [
   },
 ];
 
-const PlayerCard = ({ nom, numero, posicio, img }) => (
+const TargetaJugador = ({ nom, numero, posicio, img }) => (
   <article className="group bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl border-2 border-blue-900 transition-all duration-300 transform hover:scale-[1.02] flex flex-col items-center text-center">
     <div className="w-36 h-36 rounded-full overflow-hidden mb-4 border-4 border-red-600 shadow-lg">
       <img src={img} alt={nom} className="w-full h-full object-cover" />
@@ -81,7 +81,7 @@ const PlayerCard = ({ nom, numero, posicio, img }) => (
   </article>
 );
 
-const FeaturedPlayer = ({ player }) => (
+const JugadorDestacat = ({ jugador }) => (
   <section
     className="relative bg-white rounded-3xl overflow-hidden shadow-2xl mb-12 border-4 border-red-600"
     aria-label="Jugador Destacat"
@@ -89,8 +89,8 @@ const FeaturedPlayer = ({ player }) => (
     <div className="flex flex-col md:flex-row h-full">
       <div className="md:w-1/3 bg-blue-900 flex items-end justify-center overflow-hidden h-64 md:h-auto">
         <img
-          src={player.img}
-          alt={player.nom}
+          src={jugador.img}
+          alt={jugador.nom}
           className="w-full h-full object-cover object-top transform scale-110 md:scale-100 opacity-80 md:opacity-100"
         />
       </div>
@@ -101,15 +101,15 @@ const FeaturedPlayer = ({ player }) => (
         </span>
         <hgroup>
           <h2 className="text-5xl md:text-7xl font-black text-blue-900 leading-none">
-            {player.nom}
+            {jugador.nom}
           </h2>
           <p className="text-2xl font-bold text-gray-700 uppercase mt-2">
-            {player.posicio}
+            {jugador.posicio}
           </p>
         </hgroup>
         <div className="flex items-center space-x-4 mt-4 mb-6">
           <span className="text-6xl font-extrabold text-red-600 border-r-4 border-gray-300 pr-4">
-            {player.numero}
+            {jugador.numero}
           </span>
         </div>
         <p className="text-gray-600 text-lg max-w-lg mb-6">
@@ -124,7 +124,7 @@ const FeaturedPlayer = ({ player }) => (
 
       <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
         <span className="text-[150px] font-black text-blue-900 leading-none">
-          {player.numero}
+          {jugador.numero}
         </span>
       </div>
     </div>
@@ -132,19 +132,19 @@ const FeaturedPlayer = ({ player }) => (
 );
 
 function SectionJugadors() {
-  const allPositions = [
+  const totesPosicions = [
     "Totes",
-    ...new Set(playersData.map((p) => p.posicio)),
+    ...new Set(dadesJugadors.map((p) => p.posicio)),
   ];
-  const [selectedPosition, setSelectedPosition] = useState("Totes");
+  const [posicioSeleccionada, setPosicioSeleccionada] = useState("Totes");
 
-  const filteredPlayers = playersData.filter(
-    (player) =>
-      selectedPosition === "Totes" || player.posicio === selectedPosition
+  const jugadorsFiltrats = dadesJugadors.filter(
+    (jugador) =>
+      posicioSeleccionada === "Totes" || jugador.posicio === posicioSeleccionada
   );
 
-  const featuredPlayer =
-    playersData.find((p) => p.nom === "Ronald Araújo") || playersData[0];
+  const jugadorDestacat =
+    dadesJugadors.find((p) => p.nom === "Ronald Araújo") || dadesJugadors[0];
 
   return (
     <section
@@ -159,24 +159,24 @@ function SectionJugadors() {
           <div className="w-24 h-1 bg-red-600 mx-auto rounded-full"></div>
         </section>
 
-        <FeaturedPlayer player={featuredPlayer} />
+        <JugadorDestacat jugador={jugadorDestacat} />
 
         <section
           className="mb-10 flex flex-wrap justify-center space-x-2 md:space-x-4"
           aria-label="Filtrat per posició"
         >
-          {allPositions.map((position) => (
+          {totesPosicions.map((posicio) => (
             <button
-              key={position}
-              onClick={() => setSelectedPosition(position)}
+              key={posicio}
+              onClick={() => setPosicioSeleccionada(posicio)}
               className={`px-5 py-2 mt-2 font-bold rounded-full transition-all duration-200 text-sm md:text-base 
                 ${
-                  selectedPosition === position
+                  posicioSeleccionada === posicio
                     ? "bg-red-600 text-white shadow-lg border-2 border-red-600"
                     : "bg-white text-blue-900 hover:bg-red-50 hover:text-red-600 border-2 border-transparent"
                 }`}
             >
-              {position}
+              {posicio}
             </button>
           ))}
         </section>
@@ -185,14 +185,14 @@ function SectionJugadors() {
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pb-10"
           aria-label="Llista de jugadors"
         >
-          {filteredPlayers.length > 0 ? (
-            filteredPlayers.map((player) => (
-              <PlayerCard
-                key={player.numero}
-                nom={player.nom}
-                numero={player.numero}
-                posicio={player.posicio}
-                img={player.img}
+          {jugadorsFiltrats.length > 0 ? (
+            jugadorsFiltrats.map((jugador) => (
+              <TargetaJugador
+                key={jugador.numero}
+                nom={jugador.nom}
+                numero={jugador.numero}
+                posicio={jugador.posicio}
+                img={jugador.img}
               />
             ))
           ) : (
