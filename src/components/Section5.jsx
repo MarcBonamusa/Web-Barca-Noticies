@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 function SectionContacte() {
+  const nomInputRef = useRef(null);
+
+  useEffect(() => {
+    if (nomInputRef.current) {
+      nomInputRef.current.focus();
+    }
+  }, []);
+
   return (
     <main className="py-12 bg-blue-800 to-blue-900 font-sans w-full min-h-screen flex justify-center items-start">
       <section className="max-w-xl w-full mx-auto px-4 md:px-8">
         <section className="mb-8 text-center mt-4">
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">
+          <h1
+            id="titol-contacte"
+            className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight"
+          >
             Contacta amb Nosaltres
           </h1>
           <div className="w-24 h-1 bg-red-600 mx-auto rounded-full"></div>
@@ -17,7 +28,17 @@ function SectionContacte() {
             possible.
           </p>
 
-          <form className="space-y-6">
+          <div 
+            aria-live="polite"
+            className="sr-only"
+          >
+          </div>
+
+          <form
+            role="form"
+            aria-labelledby="titol-contacte"
+            className="space-y-6"
+          >
             <section>
               <label
                 htmlFor="nom"
@@ -28,12 +49,15 @@ function SectionContacte() {
               <input
                 type="text"
                 id="nom"
+                ref={nomInputRef}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-600 focus:border-red-600 transition duration-150"
                 placeholder="El teu nom"
                 required
+                aria-required="true"
+                aria-label="Camp per introduir el nom complet"
               />
             </section>
-
+            
             <section>
               <label
                 htmlFor="email"
@@ -47,6 +71,8 @@ function SectionContacte() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-600 focus:border-red-600 transition duration-150"
                 placeholder="el.teu@correu.com"
                 required
+                aria-required="true"
+                aria-label="Camp per introduir el teu correu electrònic"
               />
             </section>
 
@@ -63,6 +89,8 @@ function SectionContacte() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-600 focus:border-red-600 transition duration-150"
                 placeholder="Escriu el teu missatge aquí..."
                 required
+                aria-required="true"
+                aria-label="Àrea de text per escriure el teu missatge"
               ></textarea>
             </section>
 
@@ -70,6 +98,7 @@ function SectionContacte() {
               <button
                 type="submit"
                 className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-[0.98] transition-all duration-200 shadow-lg uppercase"
+                aria-label="Envia el formulari de contacte"
               >
                 <span>Enviar Missatge</span>
                 <svg

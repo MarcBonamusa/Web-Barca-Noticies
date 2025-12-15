@@ -7,15 +7,19 @@ function Navbar() {
 
   return (
     <header className="bg-white shadow-md py-3 md:py-4 border-b-4 border-red-600">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
-        <div className="flex items-center space-x-8">
-          <div className="rounded-full flex items-center justify-center w-[150px] h-[100px]">
-            <img
-              src="/barca.png"
-              alt="Noticias Barça Logo"
-              className="w-[150px] h-[150px] object-contain"
-            />
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
+            <div className="flex items-center space-x-8">
+              <Link 
+                to="/" 
+                className="rounded-full flex items-center justify-center w-[150px] h-[100px] outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition duration-150"
+                aria-label="Anar a la pàgina principal de Notícies Barça"
+              >
+              <img
+                src="/barca.png"
+                alt="Noticias Barça Logo"
+                className="w-[150px] h-[150px] object-contain"
+              />
+              </Link>
         </div>
 
         <nav className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
