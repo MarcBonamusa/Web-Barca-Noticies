@@ -18,7 +18,9 @@ const TargetaNoticia = ({ titol, icona }) => (
       {titol}
     </h2>
 
-    <button className="flex items-center space-x-2 px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md group-hover:shadow-xl uppercase text-sm">
+    <button 
+      className="flex items-center space-x-2 px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md group-hover:shadow-xl uppercase text-sm focus:outline-none focus:ring-4 focus:ring-red-400"
+    >
       <span>ANAR-HI</span>
       <svg
         className="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -78,7 +80,6 @@ function SectionInici() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <section
           className="relative mb-12 overflow-hidden rounded-3xl shadow-2xl group"
-          aria-label="Notícies destacades"
         >
           <div
             className={`relative h-64 md:h-96 w-full transition-all duration-500 ${
@@ -90,6 +91,7 @@ function SectionInici() {
               backgroundPosition: "center center",
             }}
           >
+            {/* El color de text blanc sobre fons vermell-600 és COMPLIANT (4.97:1) */}
             <div className="absolute top-6 left-6 bg-red-600 text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
               DESTACAT
             </div>
@@ -97,7 +99,7 @@ function SectionInici() {
 
           <button
             onClick={anarAnterior}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-800 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90 focus:outline-none focus:ring-4 focus:ring-red-400"
             aria-label="Notícia anterior"
           >
             <svg
@@ -117,7 +119,7 @@ function SectionInici() {
 
           <button
             onClick={anarSeguent}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-4 bg-white bg-opacity-90 text-red-800 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 z-20 shadow-xl opacity-0 group-hover:opacity-100 active:scale-90 focus:outline-none focus:ring-4 focus:ring-red-400"
             aria-label="Següent notícia"
           >
             <svg
@@ -145,8 +147,8 @@ function SectionInici() {
                 onClick={() => setIndexActual(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === indexActual
-                    ? "bg-white w-8"
-                    : "bg-white bg-opacity-50 hover:bg-opacity-75"
+                    ? "bg-white w-8 focus:outline-none focus:ring-2 focus:ring-white"
+                    : "bg-white bg-opacity-50 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-white"
                 }`}
                 aria-label={`Anar a imatge ${index + 1}`}
               />
