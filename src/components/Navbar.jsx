@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // Estat per al menú mòbil
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
