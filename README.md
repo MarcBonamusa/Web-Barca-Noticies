@@ -62,6 +62,8 @@ module.exports = {
    Estar dins del <BrowserRouter> (important).
 - Aplicar un CSS diferent si estic visitant la pàgina corresponent
 
+<img width="614" height="657" alt="image" src="https://github.com/user-attachments/assets/66807d56-98da-4d04-85fa-5677a5fd724f" />
+
 ## P2 - RA3 - Contingut multimèdia
 ### Video
 - MP4 o WebM
@@ -85,6 +87,9 @@ module.exports = {
 - Implementar un botó que, en fer-hi clic, faci que el focus se situï en un formulari o element específic de la pàgina.
 - O, si ja teniu algun formulari, feu que un input tingui focus automàtic quan la pàgina es carrega.
 
+<img width="621" height="331" alt="image" src="https://github.com/user-attachments/assets/acc7c47b-ebb4-42e6-938d-c30af531db1f" />
+
+
 ### Aria
 - Afegir aria-label als inputs per proporcionar descripcions de la funció del camp.
 - Utilitzar role="button" per millorar l'ús d'elements que no són botons però actuïn com a tal.
@@ -92,6 +97,8 @@ module.exports = {
 
 ### WCAG
 - Contrast de colors i tabindex
+
+<img width="612" height="324" alt="image" src="https://github.com/user-attachments/assets/fc55c400-0d02-4d19-9e14-9a234471cfd2" />
 
 ### Web responsive
 - Si la pàgina té una barra lateral, feu que aquesta desaparegui en pantalles petites i s'acumuli en un menú de tipus hamburguesa.
