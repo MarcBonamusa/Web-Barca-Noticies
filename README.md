@@ -18,7 +18,32 @@ If you are developing a production application, we recommend using TypeScript wi
 ## Començar projecte amb vite + react
 1. npm create vite@latest -> react -> javascript -> no -> yes
 2. Crear directori "components" a "src"
-3. 
+3. Instalar Tailwindcss: "npm install tailwindcss postcss autoprefixer"
+
+### tailwind.config.js:
+
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+### postcss.config.js:
+
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+
+### index.css
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
    
 ## P1 - RA3 - Navbar
 
