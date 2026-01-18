@@ -15,6 +15,11 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+## Començar projecte amb vite + react
+1. npm create vite@latest -> react -> javascript -> no -> yes
+2. Crear directori "components" a "src"
+3. 
+   
 ## P1 - RA3 - Navbar
 
 ### Instal·la React Router DOM al projecte
