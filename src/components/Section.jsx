@@ -10,7 +10,7 @@ const dadesImatges = [
 
 const TargetaNoticia = ({ titol, icona }) => (
   <article className="group flex-1 min-w-0 bg-gradient-to-br from-white to-gray-50 p-8 md:p-10 border-2 border-red-600 rounded-2xl shadow-lg hover:shadow-2xl text-center flex flex-col items-center justify-center space-y-6 transform hover:-translate-y-1 transition-all duration-300">
-    <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+    <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
       <span className="text-3xl">{icona}</span>
     </div>
 
@@ -91,7 +91,6 @@ function SectionInici() {
               backgroundPosition: "center center",
             }}
           >
-            {/* El color de text blanc sobre fons vermell-600 és COMPLIANT (4.97:1) */}
             <div className="absolute top-6 left-6 bg-red-600 text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
               DESTACAT
             </div>
