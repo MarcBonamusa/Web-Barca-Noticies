@@ -19,8 +19,10 @@ function Navbar() {
                 aria-label="Anar a la pàgina principal de Notícies Barça"
               >
               <img
-                src="/barca.webp"
-                alt="Noticias Barça Logo"
+                src="/barca.webp" 
+                alt="Logo FC Barcelona" 
+                width="150" 
+                height="150" 
                 className="w-[150px] h-[150px] object-contain"
               />
               </Link>
