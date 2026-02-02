@@ -1,0 +1,7 @@
+# REGLA 1: Per a TOTS els robots
+User-agent: *
+Allow: /
+
+# REGLA 2: Bloqueja l'accés a rutes
+Disallow: /admin
+Disallow: /privat
