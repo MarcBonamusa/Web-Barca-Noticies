@@ -21,7 +21,7 @@ const TargetaNoticia = ({ titol, icona }) => (
     <button 
       className="flex items-center space-x-2 px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md group-hover:shadow-xl uppercase text-sm focus:outline-none focus:ring-4 focus:ring-red-400"
     >
-      <span>ANAR-HI</span>
+      <span>Més detalls</span>
       <svg
         className="w-5 h-5 group-hover:translate-x-1 transition-transform"
         fill="none"

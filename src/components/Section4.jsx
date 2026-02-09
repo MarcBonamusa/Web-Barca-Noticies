@@ -76,7 +76,7 @@ const TargetaJugador = ({ nom, numero, posicio, img }) => (
       <p className="text-sm font-semibold text-gray-600 mb-3">{posicio}</p>
     </hgroup>
     <button className="flex items-center space-x-2 px-6 py-2 bg-blue-900 text-white font-bold rounded-full hover:bg-blue-700 active:scale-95 transition-all duration-200 shadow-md uppercase text-xs">
-      Veure Perfil
+      Més detalls
     </button>
   </article>
 );
@@ -118,7 +118,7 @@ const JugadorDestacat = ({ jugador }) => (
           sinònim de seguretat.
         </p>
         <button className="self-start flex items-center space-x-3 px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-all duration-200 shadow-lg uppercase text-base">
-          Veure Detall Complet
+          Més detalls
         </button>
       </div>
 

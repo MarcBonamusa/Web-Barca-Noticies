@@ -1,0 +1,132 @@
+@use "variables" as *;
+
+$xarxes-socials: (
+    "twitter": $color-blau,
+    "linkedin": $color-blau,
+    "instagram": $color-vermell,
+    "twitch": $color-vermell
+);
+
+.footer-container {
+    background-color: $color-blanc;
+    padding: ($espai * 2.5) $espai;
+
+    @if $color-blau ==#1e3a8a or $color-blau ==#1c3d85 {
+        border-top: 4px solid $color-vermell;
+    }
+
+    @else {
+        border-top: 4px solid $color-blau;
+    }
+
+    .footer-content {
+        max-width: 1280px;
+        margin: 0 auto;
+
+        .footer-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: $espai * 2;
+            border-bottom: 1px solid $color-vora;
+            gap: $espai * 1.5;
+
+            @media (min-width: 768px) {
+                flex-direction: row;
+            }
+        }
+    }
+
+    .logo-text {
+        font-size: 1.875rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        .blau {
+            color: $color-blau;
+        }
+
+        .vermell {
+            color: $color-vermell;
+        }
+    }
+
+    .social-links {
+        display: flex;
+        gap: $espai * 1.5;
+
+        .social-icon {
+            transition: $transicio;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            @each $nom, $color in $xarxes-socials {
+                &.#{$nom} {
+                    color: $color;
+
+                    &:hover {
+
+                        @if $color ==$color-blau {
+                            color: $color-vermell;
+                        }
+
+                        @else {
+                            color: $color-blau;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .links-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $espai * 2.5;
+        padding: ($espai * 2.5) 0;
+
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        h3 {
+            color: $color-blau;
+            font-weight: 600;
+            margin-bottom: $espai * 1.25;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 0.75rem;
+            }
+
+            a {
+                color: $color-text-gris;
+                text-decoration: none;
+                transition: $transicio;
+                font-size: 0.85rem;
+
+                &:hover {
+                    color: $color-vermell;
+                    padding-left: 5px;
+                }
+            }
+        }
+    }
+
+    .footer-copy {
+        padding-top: $espai * 1.5;
+        text-align: center;
+        font-size: 0.75rem;
+        color: $color-text-gris;
+        border-top: 1px solid $color-vora;
+    }
+}
