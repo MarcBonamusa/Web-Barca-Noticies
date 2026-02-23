@@ -1,8 +1,17 @@
-// src/assets/css/_variables.scss
+// Colors
 $color-blau: #1e3a8a;
 $color-vermell: #dc2626;
 $color-blanc: #ffffff;
 $color-text-gris: #4b5563;
-$color-vora: #e5e7eb; // Variable que faltava a l'error
-$espai: 1rem;
+$color-vora: #e5e7eb;
+
+// Mides de font
+$font-petita: 14px;
+$font-base: 16px;
+$font-gran: 24px;
+
+// Espaiats
+$espai: 16px;
+
+// Transicions
 $transicio: all 0.3s ease;

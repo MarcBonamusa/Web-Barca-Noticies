@@ -9,52 +9,53 @@ $xarxes-socials: (
 
 .footer-container {
     background-color: $color-blanc;
-    padding: ($espai * 2.5) $espai;
+    padding: ($espai * 2) $espai; 
 
-    @if $color-blau ==#1e3a8a or $color-blau ==#1c3d85 {
-        border-top: 4px solid $color-vermell;
-    }
-
-    @else {
-        border-top: 4px solid $color-blau;
+    @if $color-blau == #1e3a8a or $color-blau == #1c3d85 {
+        border-top: 0.25rem solid $color-vermell;
+    } @else {
+        border-top: 0.25rem solid $color-blau;
     }
 
     .footer-content {
-        max-width: 1280px;
+        width: 100%;
+        max-width: 80rem; 
         margin: 0 auto;
 
         .footer-header {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding-bottom: $espai * 2;
-            border-bottom: 1px solid $color-vora;
             gap: $espai * 1.5;
+            padding-bottom: $espai * 1.5;
+            border-bottom: 0.0625rem solid $color-vora;
 
             @media (min-width: 768px) {
                 flex-direction: row;
+                justify-content: space-between;
+                padding-bottom: $espai * 2;
             }
         }
     }
 
     .logo-text {
-        font-size: 1.875rem;
+        font-size: $font-gran; 
         font-weight: 800;
         text-transform: uppercase;
+        text-align: center;
 
-        .blau {
-            color: $color-blau;
+        @media (min-width: 1024px) {
+            font-size: 1.875rem;
         }
 
-        .vermell {
-            color: $color-vermell;
-        }
+        .blau { color: $color-blau; }
+        .vermell { color: $color-vermell; }
     }
 
     .social-links {
         display: flex;
         gap: $espai * 1.5;
+        font-size: $font-gran;
 
         .social-icon {
             transition: $transicio;
@@ -68,12 +69,9 @@ $xarxes-socials: (
                     color: $color;
 
                     &:hover {
-
-                        @if $color ==$color-blau {
+                        @if $color == $color-blau {
                             color: $color-vermell;
-                        }
-
-                        @else {
+                        } @else {
                             color: $color-blau;
                         }
                     }
@@ -84,12 +82,20 @@ $xarxes-socials: (
 
     .links-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: $espai * 2.5;
-        padding: ($espai * 2.5) 0;
+        grid-template-columns: 1fr;
+        gap: $espai * 2;
+        padding: ($espai * 2) 0;
+        text-align: center;
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            text-align: left;
+        }
+
+        @media (min-width: 1024px) {
             grid-template-columns: repeat(4, 1fr);
+            gap: $espai * 2.5;
+            padding: ($espai * 3) 0;
         }
 
         h3 {
@@ -97,7 +103,7 @@ $xarxes-socials: (
             font-weight: 600;
             margin-bottom: $espai * 1.25;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: $font-base;
         }
 
         ul {
@@ -112,11 +118,11 @@ $xarxes-socials: (
                 color: $color-text-gris;
                 text-decoration: none;
                 transition: $transicio;
-                font-size: 0.85rem;
+                font-size: $font-petita;
 
                 &:hover {
                     color: $color-vermell;
-                    padding-left: 5px;
+                    padding-left: 0.3125rem; 
                 }
             }
         }
@@ -127,6 +133,6 @@ $xarxes-socials: (
         text-align: center;
         font-size: 0.75rem;
         color: $color-text-gris;
-        border-top: 1px solid $color-vora;
+        border-top: 0.0625rem solid $color-vora;
     }
 }
